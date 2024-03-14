@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Sistemas de Base (Arquitetura de Computadores)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+      <H1>Conversor de Bases</H1>
+        <div class="input-container">
+            <label for="userNumber">Digite o número:</label>
+            <input type="text" id="userNumber">
+
+            <label for="fromBase">Digite a base original:</label>
+            <select id="fromBase">
+                <option value="2">Binário</option>
+                <option value="8">Octal</option>
+                <option value="10">Decimal</option>
+                <option value="16">Hexadecimal</option>
+            </select>
+
+            <label for="toBase">Digite a base de destino:</label>
+            <select id="toBase">
+                <option value="2">Binário</option>
+                <option value="8">Octal</option>
+                <option value="10">Decimal</option>
+                <option value="16">Hexadecimal</option>
+            </select>
+
+            <button onclick="converter()">Converter</button>
+        </div>
+
+        <div class="output-container">
+            <p id="resultado"></p>
+        </div>
+    </div>
+
+    <script>
+        function converter() {
+            // Pegar os valores dos inputs
+            const userNumber = document.getElementById("userNumber").value;
+            const fromBaseValue = parseInt(document.getElementById("fromBase").value, 10);
+            const toBaseValue = parseInt(document.getElementById("toBase").value, 10);
+            const resultadoElemento = document.getElementById("resultado");
+
+            // Mapear os valores das bases para os nomes correspondentes
+            const baseNames = {
+                2: "Binário",
+                8: "Octal",
+                10: "Decimal",
+                16: "Hexadecimal"
+            };
+
+            // Obter o nome da base original e de destino
+            const fromBaseName = baseNames[fromBaseValue];
+            const toBaseName = baseNames[toBaseValue];
+
+            // Verificar se as bases são válidas
+            if ([2, 8, 10, 16].includes(fromBaseValue) && [2, 8, 10, 16].includes(toBaseValue)) {
+                // Chamar a função para converter o número
+                const result = converterBase(userNumber, fromBaseValue, toBaseValue);
+
+                // Função para converter um número de uma base para outra
+                function converterBase(userNumber, fromBase, toBase) {
+                    // Converter o número para a base decimal
+                    const decimal = parseInt(userNumber, fromBase);
+
+                    // Converter o número decimal para a base destino e converter para letras maiúsculas
+                    const result = decimal.toString(toBase).toUpperCase();
+
+                    return result;
+                }
+
+                // Exibir o resultado na segunda div
+                resultadoElemento.innerText = `O número ${userNumber} no sistema e numeração ${fromBaseName} é equivalente a ${result} na base ${toBaseName}.`;
+            } else {
+                // Exibir mensagem de erro se as bases forem inválidas
+                resultadoElemento.innerText = "Bases de origem e/ou destino inválidas. Por favor, tente novamente.";
+            }
+        }
+    </script>
+</body>
+</html>
