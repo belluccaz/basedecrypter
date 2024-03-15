@@ -1,24 +1,30 @@
 body {
     display: flex;
     justify-content: center;
-    background-color: #9f9dab;
     align-items: center;
     text-align: center;
-    justify-content: center;
+    background-color: #9f9dab;
 }
 
 .container {
     margin-top: 2em;
-    width: 20em;
+    width: 90%; /* Largura ajustada para dispositivos móveis */
+    max-width: 30em; /* Largura máxima */
 }
 
-.input-container,.output-container {
-    height: 15em;
+.input-container, .output-container {
+    height: 20em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 12px;
+    margin-bottom: 20px; /* Espaçamento entre os containers */
+}
+
+.input-container > * {
+    margin-bottom: 10px; /* Espaçamento entre os elementos dentro do container */
 }
 
 .input-container {
@@ -29,6 +35,7 @@ h1 {
     font-weight: 700;
     font-style: italic;
     color: #000000ea;
+    margin: 0; /* Removida a margem padrão */
 }
 
 .output-container {
@@ -41,17 +48,17 @@ option {
 }
 
 input {
-    background-color: #2d385b;
+    background-color: #9f9dab;
     height: 3em;
     width: 5em;
     font-size: 2em;
     font-weight: bold;
     text-align: center;
     border: none;
-    color: white;
+    color: black;
 }
 
-input:focus{
+input:focus {
     outline: none;
 }
 
@@ -63,4 +70,11 @@ label {
     font-family: robotoregular;
     color: rgba(242, 241, 248, 0.645);
     font-size: 1.4em;
+}
+
+/* Estilos para dispositivos com largura maior que 600px */
+@media screen and (min-width: 600px) {
+    .container {
+        width: 50%; /* Reduzir a largura do container */
+    }
 }

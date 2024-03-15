@@ -8,22 +8,21 @@
 </head>
 <body>
     <div class="container">
-      <H1>Conversor de Bases</H1>
         <div class="input-container">
             <label for="userNumber">Digite o número:</label>
             <input type="text" id="userNumber">
 
-            <label for="fromBase">Digite a base original:</label>
+            <label for="fromBase">Escolha a base original:</label>
             <select id="fromBase">
-                <option value="2">Binário</option>
+                <option value="2">Binária</option>
                 <option value="8">Octal</option>
                 <option value="10">Decimal</option>
                 <option value="16">Hexadecimal</option>
             </select>
 
-            <label for="toBase">Digite a base de destino:</label>
+            <label for="toBase">Escolha a base de destino:</label>
             <select id="toBase">
-                <option value="2">Binário</option>
+                <option value="2">Binária</option>
                 <option value="8">Octal</option>
                 <option value="10">Decimal</option>
                 <option value="16">Hexadecimal</option>
@@ -47,7 +46,7 @@
 
             // Mapear os valores das bases para os nomes correspondentes
             const baseNames = {
-                2: "Binário",
+                2: "Binária",
                 8: "Octal",
                 10: "Decimal",
                 16: "Hexadecimal"
@@ -57,8 +56,11 @@
             const fromBaseName = baseNames[fromBaseValue];
             const toBaseName = baseNames[toBaseValue];
 
-            // Verificar se as bases são válidas
-            if ([2, 8, 10, 16].includes(fromBaseValue) && [2, 8, 10, 16].includes(toBaseValue)) {
+            // Verificar se o número fornecido é válido para a base original
+            const isValidNumber = isValid(userNumber, fromBaseValue);
+
+            // Verificar se as bases são válidas e se o número é válido para a base original
+            if ([2, 8, 10, 16].includes(fromBaseValue) && [2, 8, 10, 16].includes(toBaseValue) && isValidNumber) {
                 // Chamar a função para converter o número
                 const result = converterBase(userNumber, fromBaseValue, toBaseValue);
 
@@ -74,10 +76,29 @@
                 }
 
                 // Exibir o resultado na segunda div
-                resultadoElemento.innerText = `O número ${userNumber} no sistema e numeração ${fromBaseName} é equivalente a ${result} na base ${toBaseName}.`;
+                resultadoElemento.innerText = `O número ${userNumber} na base ${fromBaseName} é equivalente a ${result} na base ${toBaseName}`;
             } else {
-                // Exibir mensagem de erro se as bases forem inválidas
-                resultadoElemento.innerText = "Bases de origem e/ou destino inválidas. Por favor, tente novamente.";
+                // Exibir mensagem de erro se as bases forem inválidas ou o número não for válido
+                resultadoElemento.innerText = "Bases de origem e/ou destino inválidas ou número fornecido inválido para a base original. Por favor, tente novamente.";
+            }
+        }
+
+        // Função para verificar se o número fornecido é válido para a base original
+        function isValid(userNumber, fromBase) {
+            const validDigits = getValidDigits(fromBase);
+            return userNumber.split("").every(digit => validDigits.includes(digit));
+        }
+
+        // Função para obter os dígitos válidos para a base especificada
+        function getValidDigits(base) {
+            if (base === 2) {
+                return ["0", "1"];
+            } else if (base === 8) {
+                return ["0", "1", "2", "3", "4", "5", "6", "7"];
+            } else if (base === 10) {
+                return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            } else if (base === 16) {
+                return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
             }
         }
     </script>
