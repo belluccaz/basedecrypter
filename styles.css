@@ -113,6 +113,7 @@ button:hover {
 
 /* Estiliza o rodapé */
 footer {
+  width: 100%;
   text-align: center; /* Centraliza o texto no rodapé */
   padding: 20px; /* Adiciona padding ao redor do rodapé */
   background-color: rgba(0, 0, 0, 0.8); /* Define uma cor de fundo preta com opacidade */
