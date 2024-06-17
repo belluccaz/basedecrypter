@@ -1,4 +1,4 @@
-# BaseDecrypter
+# Base Decrypter
 
 Este é um projeto de conversão de bases numéricas com um efeito visual inspirado no filme "Matrix". A interface permite ao usuário converter números entre bases binária, octal, decimal e hexadecimal, enquanto um efeito de "chuva" de caracteres é exibido ao fundo.
 
