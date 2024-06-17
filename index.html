@@ -1,106 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Conversor de Sistemas de Base (Arquitetura de Computadores)</title>
-    <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Decrypter</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="input-container">
-            <label for="userNumber">Digite o número:</label>
-            <input type="text" id="userNumber">
-
-            <label for="fromBase">Escolha a base original:</label>
-            <select id="fromBase">
-                <option value="2">Binária</option>
-                <option value="8">Octal</option>
-                <option value="10">Decimal</option>
-                <option value="16">Hexadecimal</option>
-            </select>
-
-            <label for="toBase">Escolha a base de destino:</label>
-            <select id="toBase">
-                <option value="2">Binária</option>
-                <option value="8">Octal</option>
-                <option value="10">Decimal</option>
-                <option value="16">Hexadecimal</option>
-            </select>
-
-            <button onclick="converter()">Converter</button>
-        </div>
-
-        <div class="output-container">
-            <p id="resultado"></p>
-        </div>
+    <div class="matrix-content">
+        <header>
+            <h1>Base Decrypter</h1>
+        </header>
+        <main class="main">
+            <div class="converter-container">
+                <div class="input-group">
+                    <label for="userNumber">Número:</label>
+                    <input type="text" id="userNumber">
+                </div>
+                <div class="input-group">
+                    <label for="fromBase">Base de origem:</label>
+                    <select id="fromBase">
+                        <option value="2">Binária</option>
+                        <option value="8">Octal</option>
+                        <option value="10">Decimal</option>
+                        <option value="16">Hexadecimal</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="toBase">Base de destino:</label>
+                    <select id="toBase">
+                        <option value="2">Binária</option>
+                        <option value="8">Octal</option>
+                        <option value="10">Decimal</option>
+                        <option value="16">Hexadecimal</option>
+                    </select>
+                </div>
+                <button onclick="converter()">Converter</button>
+                <p id="resultado"></p>
+            </div>
+        </main>
     </div>
-
-    <script>
-        function converter() {
-            // Pegar os valores dos inputs
-            const userNumber = document.getElementById("userNumber").value;
-            const fromBaseValue = parseInt(document.getElementById("fromBase").value, 10);
-            const toBaseValue = parseInt(document.getElementById("toBase").value, 10);
-            const resultadoElemento = document.getElementById("resultado");
-
-            // Mapear os valores das bases para os nomes correspondentes
-            const baseNames = {
-                2: "Binária",
-                8: "Octal",
-                10: "Decimal",
-                16: "Hexadecimal"
-            };
-
-            // Obter o nome da base original e de destino
-            const fromBaseName = baseNames[fromBaseValue];
-            const toBaseName = baseNames[toBaseValue];
-
-            // Verificar se o número fornecido é válido para a base original
-            const isValidNumber = isValid(userNumber, fromBaseValue);
-
-            // Verificar se as bases são válidas e se o número é válido para a base original
-            if ([2, 8, 10, 16].includes(fromBaseValue) && [2, 8, 10, 16].includes(toBaseValue) && isValidNumber) {
-                // Chamar a função para converter o número
-                const result = converterBase(userNumber, fromBaseValue, toBaseValue);
-
-                // Função para converter um número de uma base para outra
-                function converterBase(userNumber, fromBase, toBase) {
-                    // Converter o número para a base decimal
-                    const decimal = parseInt(userNumber, fromBase);
-
-                    // Converter o número decimal para a base destino e converter para letras maiúsculas
-                    const result = decimal.toString(toBase).toUpperCase();
-
-                    return result;
-                }
-
-                // Exibir o resultado na segunda div
-                resultadoElemento.innerText = `O número ${userNumber} na base ${fromBaseName} é equivalente a ${result} na base ${toBaseName}`;
-            } else {
-                // Exibir mensagem de erro se as bases forem inválidas ou o número não for válido
-                resultadoElemento.innerText = "Bases de origem e/ou destino inválidas ou número fornecido inválido para a base original. Por favor, tente novamente.";
-            }
-        }
-
-        // Função para verificar se o número fornecido é válido para a base original
-        function isValid(userNumber, fromBase) {
-            const validDigits = getValidDigits(fromBase);
-            return userNumber.split("").every(digit => validDigits.includes(digit));
-        }
-
-        // Função para obter os dígitos válidos para a base especificada
-        function getValidDigits(base) {
-            if (base === 2) {
-                return ["0", "1"];
-            } else if (base === 8) {
-                return ["0", "1", "2", "3", "4", "5", "6", "7"];
-            } else if (base === 10) {
-                return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-            } else if (base === 16) {
-                return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
-            }
-        }
-    </script>
+    <footer>
+        <img class="logolba" src="/img/logolba.png" alt="logo">
+        <div class="social-links">
+            <a href="https://github.com/belluccaz" target="_blank"><img src="/img/github-icon.png" alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/lucas-bellucci-353b10298/" target="_blank"><img src="/img/linkedin-logo.png" alt="LinkedIn"></a>
+            <a href="https://twitter.com/belluccaz" target="_blank"><img src="/img/twitter.png" alt="Twitter"></a>
+        </div>
+        <p>&copy; 2024 - belluccaz</p>
+    </footer>
+    <canvas id="matrix-canvas"></canvas>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
