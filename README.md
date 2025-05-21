@@ -52,8 +52,9 @@ JavaScript
 jQuery
 Font Awesome (para os ícones sociais)
 Google Fonts (para a fonte utilizada)
+Com o auxílio de IA em certos passos do desenvolvimento.
 
-4. Contribuição
+5. Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 ## Autor
