@@ -61,10 +61,3 @@ Lucas Bellucci Almendra
 
 ## Licença
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
-
-## Contato
-GitHub
-LinkedIn
-Twitter
-
-Este README fornece uma visão geral clara do projeto, instruções de uso e detalhes sobre como contribuir. Ajuste os links e informações conforme necessário.
