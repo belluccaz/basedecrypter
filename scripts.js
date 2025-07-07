@@ -27,7 +27,7 @@ $(document).ready(function () {
     setInterval(drawMatrix, 33);
 
     // Função para converter bases
-window.converter = function() {␊
+window.converter = function() {
         const userNumber = $("#userNumber").val(); // Obtém o número do usuário
         const fromBaseValue = parseInt($("#fromBase").val(), 10); // Obtém a base de origem
         const toBaseValue = parseInt($("#toBase").val(), 10); // Obtém a base de destino
