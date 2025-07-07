@@ -49,13 +49,10 @@
  Abra o arquivo index.html em seu navegador.
  
  3. Tecnologias Utilizadas
- HTML
- CSS
- JavaScript
- jQuery
- Font Awesome (para os ícones sociais)
- Google Fonts (para a fonte utilizada)
- Com o auxílio de IA em certos passos do desenvolvimento.
- 
-EOF
-)
+ - HTML
+ - CSS
+ - JavaScript
+ - jQuery
+ - Font Awesome (para os ícones sociais)
+ - Google Fonts (para a fonte utilizada)
+ - Com o auxílio de IA em certos passos do desenvolvimento.
