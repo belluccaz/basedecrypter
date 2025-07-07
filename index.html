@@ -38,6 +38,25 @@
                 <button onclick="converter()">Converter</button>
                 <p id="resultado"></p>
             </div>
+                <button onclick="converter()">Converter</button>
+                <p id="resultado"></p>
+            </div>
+            <div class="morse-container">
+                <h2>Tradutor Morse</h2>
+                <div class="input-group">
+                    <label for="morseInput">Texto ou código Morse:</label>
+                    <input type="text" id="morseInput">
+                </div>
+                <div class="input-group">
+                    <label for="morseMode">Modo:</label>
+                    <select id="morseMode">
+                        <option value="encode">Texto para Morse</option>
+                        <option value="decode">Morse para Texto</option>
+                    </select>
+                </div>
+                <button onclick="traduzirMorse()">Traduzir</button>
+                <p id="resultadoMorse"></p>
+            </div>
         </main>
     </div>
     <footer>
