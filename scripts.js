@@ -27,7 +27,7 @@ $(document).ready(function () {
     setInterval(drawMatrix, 33);
 
     // Função para converter bases
-    window.converter = function() {
+window.converter = function() {␊
         const userNumber = $("#userNumber").val(); // Obtém o número do usuário
         const fromBaseValue = parseInt($("#fromBase").val(), 10); // Obtém a base de origem
         const toBaseValue = parseInt($("#toBase").val(), 10); // Obtém a base de destino
@@ -69,7 +69,7 @@ $(document).ready(function () {
     function isValid(userNumber, fromBase) {
         const validDigits = getValidDigits(fromBase); // Obtém os dígitos válidos para a base
         return userNumber.split("").every(digit => validDigits.includes(digit.toUpperCase())); // Verifica se todos os dígitos são válidos
-            }
+    }
 
     // Dicionário para código Morse
     const morseDict = {
