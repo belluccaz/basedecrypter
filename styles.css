@@ -68,6 +68,12 @@ h1, h2 {
   width: 100%;
 }
 
+/* Estiliza o container do tradutor Morse */
+.morse-container {
+  width: 100%;
+  margin-top: 30px;
+}
+
 /* Estiliza os grupos de input e output */
 .input-group, .output-group {
   margin: 10px 0; /* Adiciona margem vertical aos grupos */
