@@ -1,10 +1,4 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/README.md b/README.md
-index dc10a31a14b4e0acc9296a71bcccf844bb8cb679..a65302613586fabe606c474fab6f9c277321281a 100644
---- a/README.md
-+++ b/README.md
-@@ -1,55 +1,56 @@
- # Base Decrypter
+# Base Decrypter
  
  Este é um projeto de conversão de bases numéricas com um efeito visual inspirado no filme "Matrix". A interface permite ao usuário converter números entre bases binária, octal, decimal e hexadecimal, enquanto um efeito de "chuva" de caracteres é exibido ao fundo.
  
