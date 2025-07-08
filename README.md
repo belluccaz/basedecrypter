@@ -13,20 +13,6 @@
  - Interface estilizada e responsiva.
 +- Tradutor de código Morse (texto <-> Morse).
  
- ## Estrutura do Projeto
- 
- MatrixBaseConverter/
- ├── index.html
- ├── styles.css
--├── script.js
-+├── scripts.js
- ├── static/
- │ └── img/
- │ ├── github-icon.png
- │ ├── linkedin-logo.png
- │ └── twitter.png
- └── README.md
- 
  - **index.html**: Arquivo HTML principal.
  - **styles.css**: Arquivo CSS para a estilização da página.
 -- **script.js**: Arquivo JavaScript contendo a lógica para o efeito Matrix e a conversão de bases.
