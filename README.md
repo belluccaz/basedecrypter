@@ -19,8 +19,6 @@
 +- **scripts.js**: Arquivo JavaScript contendo a lógica para o efeito Matrix, a conversão de bases e o tradutor Morse.
  - **static/img/**: Diretório contendo as imagens dos ícones sociais.
    - **github-icon.png**: Ícone do GitHub.
-   - **linkedin-logo.png**: Ícone do LinkedIn.
-   - **twitter.png**: Ícone do Twitter.
  - **README.md**: Este arquivo README.
  
  ## Como Usar
